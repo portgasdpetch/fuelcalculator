@@ -10,7 +10,7 @@ public class fuelcalculator {
 		double d;
 		int v;
 		double c;
-		double g;
+		double gp;
 		int p;
 		Scanner sc = new Scanner(System.in);
 			System.out.print("Enter Distances : ");
@@ -20,21 +20,20 @@ public class fuelcalculator {
 			System.out.print("Enter comsumption : ");
 			c=sc.nextDouble();
 			System.out.print("Enter gas's price : ");
-			g=sc.nextDouble();
+			gp=sc.nextDouble();
 			System.out.print("Number of people : ");
 			p=sc.nextInt();
 			double td = d*v;
-			String.format("%.2f", td);
-			double tp = (td/c)*g;		
-			String.format("%,.2f", tp);
+			double gs = (td/c);
+			double tp = gs*gp;	
 			double ppp = (tp/p);
-			String.format("%.2f", ppp);
 			sc.close(); 
 			
 			NumberFormat formatter = new DecimalFormat("#0.00");
 			formatter.setRoundingMode(RoundingMode.HALF_UP);
 			 
-			System.out.print("distance : " + d + " kilometers * " + v + " vehicle(s) \n" + "total distances : "+d + "*" +v+" = "+(formatter.format(td))+"\nconsumption : " + c + " km/liter"
-					+ "Total price : " + (formatter.format(tp)) + "\nPrice per person : " + (formatter.format(ppp)));
+			System.out.print("Distance : " + d + " kilometers * " + v + " vehicle(s) \n" + "Total Distances : "+d + "*" +v+" = "+(formatter.format(td))+" kilometers \nConsumption : " + c + " km/liter"
+					+ "\nGas Consumed : " + (formatter.format(td)) + "/" + c +" = "+ (formatter.format(gs)) +" liter(s)\nTotal Price : " + gp + "*" + (formatter.format(gs)) + " = " 
+					+(formatter.format(tp)) + " Baht\nPrice per person : " + (formatter.format(ppp))+" Baht");
 	}
 }
