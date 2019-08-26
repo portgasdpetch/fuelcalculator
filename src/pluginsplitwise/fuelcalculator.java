@@ -4,9 +4,6 @@ public class FuelCalculator {
 		private double d, c, gp, td, gs, tp, ppp;
 		private int vq, p;
 		
-		
-		public FuelCalculator() {
-		}
 		public double distance() {
 			this.setD(d);
 			return d;
