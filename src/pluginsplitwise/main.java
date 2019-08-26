@@ -20,14 +20,13 @@ public class main {
 		fc.setGp(sc.nextDouble());
 		System.out.print("Number of people : ");
 		fc.setP(sc.nextInt());
-		NumberFormat formatter = new DecimalFormat("#,##0.##");
-		formatter.setRoundingMode(RoundingMode.HALF_UP);
-		System.out.println("\nTotal distance : " + formatter.format(fc.distance()) + " * "
-				+ formatter.format(fc.vehicles_quantity()) + " = " + formatter.format(fc.total_distance())
-				+ " kilometers\n" + "Consumption : " + formatter.format(fc.consumption())+ " km/liter\n"
-				+ "Gas consumed : " + formatter.format(fc.total_distance()) + "/" + formatter.format(fc.consumption()) + " = "+ formatter.format(fc.gas_consumed()) + " liter(s)\n"
-				+ "Total price : " +formatter.format(fc.gas_consumed()) + "*" +formatter.format(fc.gas_price()) + " = "+ formatter.format(fc.total_price()) + " Baht\n" 
-				+ "Price per person : " + formatter.format(fc.total_price()) + "/"+ fc.getP() + " = "+ formatter.format(fc.price_per_person()) + " Baht");
+//		System.out.println("\nTotal distance : " + formatter.format(fc.distance()) + " * "
+//				+ formatter.format(fc.vehicles_quantity()) + " = " + formatter.format(fc.total_distance())
+//				+ " kilometers\n" + "Consumption : " + formatter.format(fc.consumption())+ " km/liter\n"
+//				+ "Gas consumed : " + formatter.format(fc.total_distance()) + "/" + formatter.format(fc.consumption()) + " = "+ formatter.format(fc.gas_consumed()) + " liter(s)\n"
+//				+ "Total price : " +formatter.format(fc.gas_consumed()) + "*" +formatter.format(fc.gas_price()) + " = "+ formatter.format(fc.total_price()) + " Baht\n" 
+//				+ "Price per person : " + formatter.format(fc.total_price()) + "/"+ fc.getP() + " = "+ formatter.format(fc.price_per_person()) + " Baht");
+		System.out.println(fc.result());
 		sc.nextLine();
 		System.out.println("\nPress Enter to exit");
 		sc.nextLine();

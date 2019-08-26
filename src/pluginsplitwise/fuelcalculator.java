@@ -1,5 +1,9 @@
 package pluginsplitwise;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class FuelCalculator {
 		private double d, c, gp, td, gs, tp, ppp;
 		private int vq, p;
@@ -70,7 +74,17 @@ public class FuelCalculator {
 		public void setP(int p) {
 			this.p = p;
 		}
-		
+		public String result() {
+			NumberFormat formatter = new DecimalFormat("#,##0.##");
+			formatter.setRoundingMode(RoundingMode.HALF_UP);
+			String text = "\nTotal distance : " + formatter.format(distance()) + " * "
+					+ formatter.format(vehicles_quantity()) + " = " + formatter.format(total_distance())
+					+ " kilometers\n" + "Consumption : " + formatter.format(consumption())+ " km/liter\n"
+					+ "Gas consumed : " + formatter.format(total_distance()) + "/" + formatter.format(consumption()) + " = "+ formatter.format(gas_consumed()) + " liter(s)\n"
+					+ "Total price : " +formatter.format(gas_consumed()) + "*" +formatter.format(gas_price()) + " = "+ formatter.format(total_price()) + " Baht\n" 
+					+ "Price per person : " + formatter.format(total_price()) + "/"+ getP() + " = "+ formatter.format(price_per_person()) + " Baht";
+			return text;
+		}
 //		Scanner sc = new Scanner(System.in);
 //		System.out.print("Enter Distances : ");
 //		d = sc.nextDouble();
