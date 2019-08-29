@@ -3,118 +3,149 @@ package pluginsplitwise;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class FuelCalculator {
-		private double d, c, gp, td, gs, tp, ppp;
-		private int vq, p;
-		
-		public double distance() {
-			this.setD(d);
-			return d;
-		}
-		public double consumption() {
-			this.setC(c);
-			return c;			
-		}
-		public double gas_price() {
-			this.setGp(gp);
-			return gp;
-		}
-		public int vehicles_quantity() {
-			this.setVq(vq);
-			return vq;
-		}
-		public int people() {
-			this.setP(p);
-			return p;
-		}
-		public double total_distance() {
-			td = (getD()*getVq());
-			return td;
-		}
-		public double gas_consumed() {
-			gs = (td/getC());
-			return gs;
-		}
-		public double total_price() {
-			tp = (gs*getGp());
-			return tp;			
-		}
-		public double price_per_person() {
-			ppp = (tp/getP());
-			return ppp;
-		}
-		public double getD() {
-			return d;
-		}
-		public void setD(double d) {
-			this.d = d;
-		}
-		public int getVq() {
-			return vq;
-		}
-		public void setVq(int vq) {
-			this.vq = vq;
-		}
-		public double getC() {
-			return c;
-		}
-		public void setC(double c) {
-			this.c = c;
-		}
-		public double getGp() {
-			return gp;
-		}
-		public void setGp(double gp) {
-			this.gp = gp;
-		}
-		public int getP() {
-			return p;
-		}
-		public void setP(int p) {
-			this.p = p;
-		}
-		public String result() {
-			NumberFormat formatter = new DecimalFormat("#,##0.##");
-			formatter.setRoundingMode(RoundingMode.HALF_UP);
-			String text = "\nTotal distance : " + formatter.format(distance()) + " * "
-					+ formatter.format(vehicles_quantity()) + " = " + formatter.format(total_distance())
-					+ " kilometers\n" + "Consumption : " + formatter.format(consumption())+ " km/liter\n"
-					+ "Gas consumed : " + formatter.format(total_distance()) + "/" + formatter.format(consumption()) + " = "+ formatter.format(gas_consumed()) + " liter(s)\n"
-					+ "Total price : " +formatter.format(gas_consumed()) + "*" +formatter.format(gas_price()) + " = "+ formatter.format(total_price()) + " Baht\n" 
-					+ "Price per person : " + formatter.format(total_price()) + "/"+ getP() + " = "+ formatter.format(price_per_person()) + " Baht";
-			return text;
-		}
-//		Scanner sc = new Scanner(System.in);
-//		System.out.print("Enter Distances : ");
-//		d = sc.nextDouble();
-//		System.out.print("Enter number of vehicles : ");
-//		v = sc.nextInt();
-//		System.out.print("Enter comsumption : ");
-//		c = sc.nextDouble();
-//		System.out.print("Enter gas's price : ");
-//		gp = sc.nextDouble();
-//		System.out.print("Number of people : ");
-//		p = sc.nextInt();
-//		double td = d * vq;
-//		double gs = (td / c);
-//		double tp = gs * gp;
-//		double ppp = (tp / p);
+	private double distance, consumption, gasPrice, totalDistance, totalPrice, pricePerPerson, gasConsumption, averageConsumption, eachVehicleConsumption;
+	private int vehicleQuantity, people, i;
+	Scanner sc = new Scanner(System.in);
+	double[] ar;
+	
+	
+	public int getVq() {
+		return vehicleQuantity;
+	}
 
-//		NumberFormat formatter = new DecimalFormat("#,##0.##");
-//		formatter.setRoundingMode(RoundingMode.HALF_UP);
+	public double distanceTraveled() {
+		this.setD(distance);
+		return distance;
+	}
 
-//		System.out.println("Distance : " + (formatter.format(d)) + " kilometers * " + (formatter.format(v))
-//				+ " vehicle(s) \n" + "Total Distances : " + (formatter.format(d)) + "*" + (formatter.format(v)) + " = "
-//				+ (formatter.format(td)) + " kilometers \nConsumption : " + (formatter.format(c)) + " km/liter"
-//				+ "\nGas Consumed : " + (formatter.format(td)) + "/" + (formatter.format(c)) + " = "
-//				+ (formatter.format(gs)) + " liter(s)\nTotal Price : " + (formatter.format(gp)) + "*"
-//				+ (formatter.format(gs)) + " = " + (formatter.format(tp)) + " Baht\nPrice per person : "
-//				+ (formatter.format(ppp)) + " Baht");
-//		
-//		sc.nextLine();
-//		System.out.println("\nPress Enter to exit");
-//		sc.nextLine();
-//		System.out.println("Bye");
-//		sc.close();		
+	public double[] consumeVehicles() {
+		ar = new double[getVq()];
+		int j = 1;
+		for (i = 0; i < (getVq()); i++) {
+			System.out.print("Enter vehicle " + j + "'s consumption : ");
+			ar[i] = (sc.nextDouble());
+			j++;
+		}
+		return ar;
+	}
+	
+	public void calConsump() {
+		NumberFormat formatter = new DecimalFormat("#,##0.##");
+		formatter.setRoundingMode(RoundingMode.HALF_UP);
+		int j = 1;
+		for (i = 0; i < (getVq()); i++) {
+			System.out.println("\nVehicle " + j + " consumes : " + formatter.format(distanceTraveled()) + "/" + formatter.format(ar[i]) + " ~ "
+			+ formatter.format(distance/ar[i])+" liter(s)");
+			j++;
+		}
+	}
+	
+	public double calEachVehicleConsump() {
+		for (i=0 ; i < (getVq());i++) {
+		eachVehicleConsumption =  eachVehicleConsumption + (distance/ar[i]);		
+		}
+		return eachVehicleConsumption;
+	}
+
+	public int vehiclesAmount() {
+		this.setVq(vehicleQuantity);
+		return vehicleQuantity;
+	}
+
+	public double consume() {
+		this.setC(consumption);
+		return consumption;
+	}
+
+	public double gas_price() {
+		this.setGp(gasPrice);
+		return gasPrice;
+	}
+
+	public int people() {
+		this.setP(people);
+		return people;
+	}
+
+	public double totalDistanceTraveled() {
+		totalDistance = (getD() * getVq());
+		return totalDistance;
+	}
+
+	public double gasConsumed() {	
+		gasConsumption = gasConsumption+calEachVehicleConsump();
+		return gasConsumption;
+	}
+
+	public double total_price() {
+		totalPrice = (gasConsumption * getGp());
+		return totalPrice;
+	}
+
+	public double price_per_person() {
+		pricePerPerson = (totalPrice / getP());
+		return pricePerPerson;
+	}
+
+	public double getD() {
+		return distance;
+	}
+
+	public void setD(double distance) {
+		this.distance = distance;
+	}
+
+	public void setVq(int vehicleQuantity) {
+		this.vehicleQuantity = vehicleQuantity;
+	}
+
+	public double getC() {
+		return consumption;
+	}
+
+	public void setC(double consumption) {
+		this.consumption = consumption;
+	}
+
+	public void setGp(double gasPrice) {
+		this.gasPrice = gasPrice;
+	}
+	public double getGp() {
+		return gasPrice;
+	}
+
+
+
+	public int getP() {
+		return people;
+	}
+
+	public void setP(int people) {
+		this.people = people;
+	}
+	
+	public double calAvgConsumption() {
+		double sum=0;
+		for (i=0;i<getVq();i++) {
+			sum = sum+ar[i];
+		}
+		averageConsumption = sum/getVq();
+		return averageConsumption;
+	}
+
+	public String result() {
+		NumberFormat formatter = new DecimalFormat("#,##0.##");
+		formatter.setRoundingMode(RoundingMode.HALF_UP);
+		String text = "\nTotal distance : " + formatter.format(distanceTraveled()) + " * "
+				+ formatter.format(vehiclesAmount()) + " = " + formatter.format(totalDistanceTraveled())
+				+ " kilometers\n" + "Total gas consumed : " + " "+ formatter.format(gasConsumed()) + " liter(s)\n"
+				+ "Average consumption : " 	+ formatter.format(calAvgConsumption()) + " km/liter\n" 
+				+ "Total price : " + formatter.format(gasConsumption) + "*" + formatter.format(getGp()) + " ~ "
+				+ formatter.format(total_price()) + " Baht\n" + "Price per person : " + formatter.format(total_price())
+				+ "/" + getP() + " = " + formatter.format(price_per_person()) + " Baht";
+		return text;
+	}
 }
