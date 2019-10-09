@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class FuelCalculator {
-	private double distance, gasPrice, totalDistance, totalPrice, pricePerPerson, gasConsumption, averageConsumption,
+	private double gasPrice, totalDistance, totalPrice, pricePerPerson, gasConsumption, averageConsumption,
 			eachVehicleConsumption;
 	private int vehicleQuantity, people, i;
 	Scanner sc = new Scanner(System.in);
@@ -16,10 +16,7 @@ public class FuelCalculator {
 		return vehicleQuantity;
 	}
 
-	public double distanceTraveled() {
-		this.setD(distance);
-		return distance;
-	}
+
 
 	public double[] vehicleDistances() {
 		vd = new double[getVehicleQuantity()];
@@ -105,14 +102,6 @@ public class FuelCalculator {
 	public double price_per_person() {
 		pricePerPerson = (totalPrice / getP());
 		return pricePerPerson;
-	}
-
-	public double getD() {
-		return distance;
-	}
-
-	public void setD(double distance) {
-		this.distance = distance;
 	}
 
 	public void setVehicleQuantity(int vehicleQuantity) {
