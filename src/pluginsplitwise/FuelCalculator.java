@@ -33,7 +33,7 @@ public class FuelCalculator {
 		vc = new double[getVehicleQuantity()];
 		int j = 1;
 		for (i = 0; i < (getVehicleQuantity()); i++) {
-			System.out.print("Enter vehicle " + j + "'s consumption : ");
+			System.out.print("Enter vehicle " + j + "'s consumption(km/liter) : ");
 			vc[i] = (sc.nextDouble());
 			j++;
 		}
