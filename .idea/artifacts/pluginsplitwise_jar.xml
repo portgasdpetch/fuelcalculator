@@ -2,7 +2,7 @@
   <artifact type="jar" name="pluginsplitwise:jar">
     <output-path>$PROJECT_DIR$/classes/artifacts/pluginsplitwise_jar</output-path>
     <root id="archive" name="pluginsplitwise.jar">
-      <element id="module-output" name="pluginsplitwise" />
+      <element id="module-output" name="FuelCalculator" />
     </root>
   </artifact>
 </component>

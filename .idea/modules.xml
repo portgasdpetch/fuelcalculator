@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/pluginsplitwise.iml" filepath="$PROJECT_DIR$/pluginsplitwise.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FuelCalculator.iml" filepath="$PROJECT_DIR$/FuelCalculator.iml" />
     </modules>
   </component>
 </project>
