@@ -23,7 +23,7 @@ class FuelCalculator {
     fun vehicleDistances(): DoubleArray {
         vehicleDistance = DoubleArray(vehicleQuantity)
         var j = 1
-        i = 0
+
         if (vehicleQuantity == 1) {
             print("Enter vehicle's distances: ")
             vehicleDistance[i] = sc.nextDouble()
@@ -41,7 +41,6 @@ class FuelCalculator {
     internal fun consumeVehicles(): DoubleArray {
         vehicleConsumption = DoubleArray(vehicleQuantity)
         var j = 1
-        i = 0
         if (vehicleQuantity == 1) {
             print("Enter vehicle's consumption(km/liter) : ")
             vehicleConsumption[i] = sc.nextDouble()
@@ -58,7 +57,6 @@ class FuelCalculator {
 
     fun calDistance() {
         val j = 1
-        i = 0
         while (i < vehicleQuantity) {
             println("\nVehicle " + j + "travels " + vehicleDistance[i] + "kilometers")
             i++
@@ -69,7 +67,6 @@ class FuelCalculator {
     internal fun calAndPrintConsumption() {
         formatter.roundingMode = RoundingMode.HALF_UP
         var j = 1
-        i = 0
         if (vehicleQuantity == 1) {
             println("\nVehicle " + "consumes : " + formatter.format(vehicleDistance[i]) + "/"
                     + formatter.format(vehicleConsumption[i]) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i]) + " liter(s)")
@@ -85,20 +82,17 @@ class FuelCalculator {
 
     internal fun printCostPerDistance() {
         formatter.roundingMode = RoundingMode.HALF_UP
-        val pricePerDistance = gasPrice() / calAvgConsumption()
-        print("Cost per distance(baht/kilometers) : " + formatter.format(pricePerDistance) + " baht\n")
+        if (vehicleQuantity == 1) {
+            val pricePerDistance = gasPrice() / calAvgConsumption()
+            print("Cost per distance(baht/kilometers) : " + formatter.format(pricePerDistance) + " baht\n")
+        }
     }
 
     private fun calEachVehicleConsumption(): Double {
-        i = 0
-        if (vehicleQuantity==1){
-            eachVehicleConsumption = vehicleDistance[i] / vehicleConsumption[i]
-        } else {
-            while (i < vehicleQuantity) {
+        while (i < vehicleQuantity) {
 //            eachVehicleConsumption = eachVehicleConsumption + vehicleDistance[i] / vehicleConsumption[i]
-                eachVehicleConsumption += vehicleDistance[i] / vehicleConsumption[i]
-                i++
-            }
+            eachVehicleConsumption += vehicleDistance[i] / vehicleConsumption[i]
+            i++
         }
         return eachVehicleConsumption
     }
@@ -120,7 +114,6 @@ class FuelCalculator {
 
     private fun totalDistanceTraveled(): Double {
         var sum = 0.0
-        i = 0
         while (i < vehicleQuantity) {
             sum += vehicleDistance[i]
             i++
@@ -135,7 +128,11 @@ class FuelCalculator {
     }
 
     private fun totalPrice(): Double {
-        totalPrice = gasConsumption * gasPrice
+        totalPrice = if (vehicleQuantity == 1) {
+            gasConsumed() * gasPrice
+        } else {
+            gasConsumption * gasPrice
+        }
         return totalPrice
     }
 
@@ -146,7 +143,6 @@ class FuelCalculator {
 
     private fun calAvgConsumption(): Double {
         var sum = 0.0
-        i = 0
         while (i < vehicleQuantity) {
             sum += vehicleConsumption[i]
             i++
@@ -158,7 +154,7 @@ class FuelCalculator {
     internal fun printEachVehicleDistance() {
         formatter.roundingMode = RoundingMode.HALF_UP
         print("\nTotal distance is ")
-        i = 0
+
         if (vehicleQuantity == 1) {
             print(formatter.format(totalDistanceTraveled()) + " kilometers")
         } else {
@@ -171,17 +167,17 @@ class FuelCalculator {
                 }
                 i++
             }
-            print(" = " + formatter.format(totalDistanceTraveled()) + " kilometers")
+            print(" ~ " + formatter.format(totalDistanceTraveled()) + " kilometers")
         }
     }
 
     internal fun printAvgConsumption() {
         formatter.roundingMode = RoundingMode.HALF_UP
         if (vehicleQuantity == 1) {
-
+            return
         } else {
             print("\nAverage consumption : (")
-            i = 0
+
             while (i < vehicleQuantity) {
                 val s = "+" + formatter.format(vehicleConsumption[i])
                 if (i == 0) {
@@ -191,13 +187,12 @@ class FuelCalculator {
                 }
                 i++
             }
-            print(")/" + vehicleQuantity + " = " + formatter.format(calAvgConsumption()) + " km/liter\n")
+            print(")/" + vehicleQuantity + " ~ " + formatter.format(calAvgConsumption()) + " km/liter\n")
         }
     }
 
     internal fun printTotalGasConsume() {
         formatter.roundingMode = RoundingMode.HALF_UP
-        i = 0
         //in case of 1 car just do not do this method
         if (vehicleQuantity == 1) {
             return
@@ -212,21 +207,20 @@ class FuelCalculator {
                 }
                 i++
             }
-            print(" = " + formatter.format(gasConsumed()) + " liter(s)\n")
+            print(" ~ " + formatter.format(gasConsumed()) + " liter(s)\n")
         }
     }
 
     internal fun printEachVehicleConsume() {
         formatter.roundingMode = RoundingMode.HALF_UP
         var j = 1
-        i = 0
-        if (vehicleQuantity==1){
+        if (vehicleQuantity == 1) {
             println("Gasoline price is " + formatter.format(vehicleDistance[i] / vehicleConsumption[i]) + "*"
-                    + formatter.format(gasPrice) + " = " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
+                    + formatter.format(gasPrice) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
         } else {
             while (i < vehicleQuantity) {
                 println("\nVehicle " + j + "'s gasoline price is " + formatter.format(vehicleDistance[i] / vehicleConsumption[i]) + "*"
-                        + formatter.format(gasPrice) + " = " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
+                        + formatter.format(gasPrice) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
                 j++
                 i++
             }
@@ -235,10 +229,9 @@ class FuelCalculator {
 
     internal fun printTotalPrice() {
         formatter.roundingMode = RoundingMode.HALF_UP
-        i = 0
-        if(vehicleQuantity==1){
+        if (vehicleQuantity == 1) {
             return
-        }else {
+        } else {
             print("\nTotal price : ")
             while (i < vehicleQuantity) {
                 val s = "+" + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice)
@@ -249,16 +242,16 @@ class FuelCalculator {
                 }
                 i++
             }
-            print(" = " + formatter.format(totalPrice()) + " Baht\n")
+            print(" ~ " + formatter.format(totalPrice()) + " Baht\n")
         }
     }
 
     internal fun printPricePerPerson() {
         formatter.roundingMode = RoundingMode.HALF_UP
-        if(people()==1){
+        if (people() == 1) {
             return
         } else {
-            print("Price per person : " + formatter.format(totalPrice()) + "/" + people + " = "
+            print("Price per person : " + formatter.format(totalPrice()) + "/" + people + " ~ "
                     + formatter.format(pricePerPerson()) + " Baht\n")
         }
     }

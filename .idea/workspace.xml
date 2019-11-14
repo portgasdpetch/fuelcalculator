@@ -7,19 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d761f0a-47ca-475e-be58-6ce8012427b4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pluginsplitwise/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/pluginsplitwise_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/pluginsplitwise_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/pluginsplitwise/fuelcalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/pluginsplitwise/fuelcalculator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/pluginsplitwise/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pluginsplitwise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FuelCalculator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pluginsplitwise/fuelcalculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pluginsplitwise/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -56,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="100" column="13" lean-forward="true" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+            <state relative-caret-position="365">
+              <caret line="240" column="28" lean-forward="true" selection-start-line="240" selection-start-column="28" selection-end-line="240" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -65,8 +55,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            <state relative-caret-position="272">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -77,11 +67,21 @@
     <findStrings>
       <find>consumption</find>
       <find>total price</find>
-      <find>gasprice</find>
       <find>costperdi</find>
       <find>priceperperson</find>
+      <find>gasprice</find>
+      <find>~</find>
+      <find>=</find>
+      <find>&quot; = &quot;</find>
+      <find>totalPrice</find>
+      <find>costper</find>
+      <find>totalprice()</find>
       <find>totalprice</find>
+      <find>i = 0</find>
     </findStrings>
+    <replaceStrings>
+      <replace>&quot; ~ &quot;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -132,8 +132,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -215,7 +215,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27132195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -225,7 +225,7 @@
       <window_info id="Resources Explorer" order="7" weight="0.32982087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33152762" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -244,8 +244,35 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JetRunConfigurationType">
+        <watch expression="eachVehicleConsumption" />
+        <watch expression="gasConsumed()" language="JAVA" />
+        <watch expression="gasConsumption" />
+        <watch expression="totalPrice()" />
+        <watch expression="calEachVehicleConsumption()" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>gasConsumed()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bin/pluginsplitwise/FuelCalculator.class" />
+    <entry file="jar://$PROJECT_DIR$/lib/kotlin-stdlib-sources.jar!/kotlin/Primitives.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="1059" column="24" selection-start-line="1059" selection-start-column="24" selection-end-line="1059" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FuelCalculator.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -261,15 +288,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="272">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="100" column="13" lean-forward="true" selection-start-line="100" selection-start-column="13" selection-end-line="100" selection-end-column="13" />
+        <state relative-caret-position="365">
+          <caret line="240" column="28" lean-forward="true" selection-start-line="240" selection-start-column="28" selection-end-line="240" selection-end-column="28" />
         </state>
       </provider>
     </entry>
