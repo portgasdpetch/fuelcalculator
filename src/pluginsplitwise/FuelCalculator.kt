@@ -86,8 +86,8 @@ class FuelCalculator {
     internal fun printCostPerDistance() {
         formatter.roundingMode = RoundingMode.HALF_UP
         if (vehicleQuantity==1) {
-            val pricePerDistance = gasPrice() / calAvgConsumption()
-            print("Cost per distance(baht/kilometers) : " + formatter.format(pricePerDistance) + " baht\n")
+            val pricePerDistance = formatter.format((vehicleDistance[i] / vehicleConsumption[i] * gasPrice) / totalDistance)
+            print("Cost per distance(baht/kilometers) is " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) +"/"+ formatter.format(totalDistance) +" ~ "+ formatter.format(pricePerDistance) + " baht\n")
         }
     }
 
