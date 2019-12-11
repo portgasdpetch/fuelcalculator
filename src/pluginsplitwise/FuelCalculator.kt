@@ -12,6 +12,7 @@ class FuelCalculator {
     private var gasConsumption: Double = 0.toDouble()
     private var averageConsumption: Double = 0.toDouble()
     private var eachVehicleConsumption: Double = 0.toDouble()
+    private var totalGasPrice: Double = 0.toDouble()
     var vehicleQuantity: Int = 0
     var people: Int = 0
     private var i: Int = 0
@@ -19,6 +20,7 @@ class FuelCalculator {
     private lateinit var vehicleDistance: DoubleArray
     private lateinit var vehicleConsumption: DoubleArray
     private val formatter = DecimalFormat("#,##0.##")
+
 
     fun vehicleDistances(): DoubleArray {
         vehicleDistance = DoubleArray(vehicleQuantity)
@@ -85,10 +87,16 @@ class FuelCalculator {
 
     internal fun printCostPerDistance() {
         formatter.roundingMode = RoundingMode.HALF_UP
-        if (vehicleQuantity==1) {
-            val pricePerDistance = formatter.format((vehicleDistance[i] / vehicleConsumption[i] * gasPrice) / totalDistance)
-            print("Cost per distance(baht/kilometers) is " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) +"/"+ formatter.format(totalDistance) +" ~ "+ formatter.format(pricePerDistance) + " baht\n")
+
+        //if not do this the consumption will be invalid
+        val pricePerDistance:Double = if (vehicleQuantity==1 && people == 1) {
+            totalPrice() / totalDistanceTraveled()
+        } else {
+            totalPrice / totalDistanceTraveled()
         }
+        print("Cost per distance(baht/kilometers) is "  + formatter.format(totalPrice) +"/"+ formatter.format(totalDistance) +" ~ "
+                    + formatter.format(pricePerDistance) + " baht\n")
+//        }
     }
 
     private fun calEachVehicleConsumption(): Double {
@@ -218,17 +226,24 @@ class FuelCalculator {
         }
     }
 
+    private fun totalGasPrice():Double{
+        totalGasPrice = vehicleDistance[i] / vehicleConsumption[i] * gasPrice
+        return totalGasPrice
+    }
+
     internal fun printEachVehicleConsume() {
         formatter.roundingMode = RoundingMode.HALF_UP
         var j = 1
         i = 0
         if (vehicleQuantity==1){
             println("Gasoline price is " + formatter.format(vehicleDistance[i] / vehicleConsumption[i]) + "*"
-                    + formatter.format(gasPrice) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
+//                    + formatter.format(gasPrice) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
+            + formatter.format(gasPrice) + " ~ " + formatter.format(totalGasPrice()) + " baht")
         } else {
             while (i < vehicleQuantity) {
                 println("\nVehicle " + j + "'s gasoline price is " + formatter.format(vehicleDistance[i] / vehicleConsumption[i]) + "*"
-                        + formatter.format(gasPrice) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
+//                        + formatter.format(gasPrice) + " ~ " + formatter.format(vehicleDistance[i] / vehicleConsumption[i] * gasPrice) + " baht")
+                        + formatter.format(gasPrice) + " ~ " + formatter.format(totalGasPrice()) + " baht")
                 j++
                 i++
             }

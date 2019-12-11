@@ -8,8 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2d761f0a-47ca-475e-be58-6ce8012427b4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/pluginsplitwise/fuelcalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/pluginsplitwise/fuelcalculator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pluginsplitwise/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/pluginsplitwise/Main.kt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/bin/" />
@@ -46,8 +46,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
+            <state relative-caret-position="-682">
+              <caret line="138" column="55" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -55,7 +55,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/Main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
+            <state relative-caret-position="374">
               <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
@@ -75,13 +75,19 @@
       <find>totalPrice</find>
       <find>costper</find>
       <find>totalprice()</find>
-      <find>totalprice</find>
       <find>i = 0</find>
-      <find>gas</find>
       <find>gasconsumption</find>
-      <find>gasprice</find>
       <find>price</find>
       <find>cost per di</find>
+      <find>gasprice()</find>
+      <find>gasprice</find>
+      <find>gas</find>
+      <find>total</find>
+      <find>totaldistance</find>
+      <find>to</find>
+      <find>totalprice</find>
+      <find>people</find>
+      <find>caleachvehicleconsumption</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; ~ &quot;</replace>
@@ -192,7 +198,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29637527" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29957357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -202,7 +208,7 @@
       <window_info id="Resources Explorer" order="7" weight="0.32982087" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37053087" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3109426" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -243,13 +249,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/bin/pluginsplitwise/FuelCalculator.class" />
-    <entry file="jar://$PROJECT_DIR$/lib/kotlin-stdlib-sources.jar!/kotlin/Primitives.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="1059" column="24" selection-start-line="1059" selection-start-column="24" selection-end-line="1059" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FuelCalculator.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -265,15 +264,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/Main.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
+        <state relative-caret-position="374">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/kotlin-stdlib-sources.jar!/kotlin/Primitives.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="978" column="13" selection-start-line="978" selection-start-column="13" selection-end-line="978" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pluginsplitwise/FuelCalculator.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="-682">
+          <caret line="138" column="55" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="55" />
         </state>
       </provider>
     </entry>
