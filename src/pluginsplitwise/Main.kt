@@ -14,7 +14,7 @@ fun main() {
     print("Number of people : ")
     fc.people = sc.nextInt()
     fc.printEachVehicleDistance()
-    print("\nGas price is "+fc.gasPrice+" baht")
+    print("\nGas price is "+fc.gasPrice+" baht/liter")
     fc.printAvgConsumption()
     fc.calAndPrintConsumption()
     fc.printTotalGasConsume()
